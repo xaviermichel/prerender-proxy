@@ -1,0 +1,15 @@
+{
+  "name": "prerender-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wix-prerender-proxy.js",
+  "scripts": {
+	"start": "node prerender-proxy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prerender": "4.3.1"
+  }
+}
