@@ -2,7 +2,7 @@
   "name": "prerender-proxy",
   "version": "1.0.0",
   "description": "",
-  "main": "wix-prerender-proxy.js",
+  "main": "prerender-proxy.js",
   "scripts": {
 	"start": "node prerender-proxy.js",
     "test": "echo \"Error: no test specified\" && exit 1"
