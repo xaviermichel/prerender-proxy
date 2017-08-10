@@ -1,4 +1,5 @@
-var url = require("url");
+var url = require("url"),
+	util = require("prerender/lib/util.js");
 
 module.exports = {
 	init: function() {
@@ -6,13 +7,19 @@ module.exports = {
 	},
 	beforePhantomRequest: function(req, res, next) {
 		var parsed = url.parse(req.prerender.url);
+		var isToExclude = false;
 
 		for (let exclusion of this.exclusionsArray) {
 			if (parsed.href.indexOf(exclusion) !== -1) {
-				res.send(404);
+				isToExclude = true;
 			}
 		}
 
-		next();
+		if (isToExclude) {
+			util.log('Will not crawl : ' + parsed.href);
+			res.send(404);
+		} else {
+			next();
+		}
 	}
 }
