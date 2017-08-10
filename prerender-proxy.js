@@ -1,4 +1,10 @@
-var prerender = require('prerender/lib/index');
+var prerender = require('prerender/lib/index'),
+	exclusionsPlugins = require('./plugins/exclusions');
+
+// each url which contains one entry of exclusionsList will not be downloaded
+// entry are separated with ',', for example : 'please,ignore,those,words
+process.env.exclusionsList = '?lightbox=';
+
 
 var server = prerender({
 	workers: 2,
@@ -9,6 +15,7 @@ var server = prerender({
 	waitAfterLastRequest: 1000
 });
 
+server.use(exclusionsPlugins);
 server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 
