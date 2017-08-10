@@ -34,6 +34,6 @@ npm start
 
 And now, you can crawl your website through the proxy, with `wget` :
 ```bash
-wget -w 1 -t 3 -e use_proxy=yes -e http_proxy=http://127.0.0.1:3000/ -r -k -E -np http://user.wixsite.com/site
+wget --wait 3 --tries 3 -e use_proxy=yes -e http_proxy=http://127.0.0.1:3000/ -r -k -E -np http://user.wixsite.com/site
 ```
 
